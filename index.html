@@ -103,9 +103,9 @@
   </header>
 
   <main>
-    <div class="container">
-
-      <div class="card">
+    <div class="container" id="registros">
+      <!-- Registros carregados dinamicamente -->
+      <!-- <div class="card">
         <div class="img">
           <img src="img/jurica-koletic-7YVZYZeITc8-unsplash.jpg" alt="">
         </div>
@@ -133,18 +133,13 @@
           <h1>Diego Genuino</h1>
           <p>12:30 - 29/01/2025</p>
         </div>
-      </div>
+      </div> -->
 
 
 
 
     </div>
   </main>
-
-  <tbody id="registros">
-    <!-- Registros serão carregados dinamicamente aqui -->
-  </tbody>
-
 
   <script>
     // Função para carregar os dados da tabela diretamente do servidor
@@ -161,11 +156,15 @@
 
           // Constrói o HTML das linhas da tabela
           data.forEach(registro => {
-            html += `<tr>
-                              <td><img src="${registro.imagem}" alt="Imagem"></td>
-                              <td>${registro.nome}</td>
-                              <td>${registro.horario}</td>
-                          </tr>`;
+            html += `<div class="card">
+                <div class="img">
+                  <img src="${registro.imagem}" alt="Imagem">
+                </div>
+                <div class="info">
+                  <h1>${registro.nome}</h1>
+                  <p>${registro.horario}</p>
+                </div>
+              </div>`;
           });
 
           // Atualiza a tabela
